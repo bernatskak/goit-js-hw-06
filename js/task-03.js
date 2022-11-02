@@ -17,6 +17,7 @@ const galleryList = document.querySelector(".gallery");
 const galleryItem = images
 .map(
   (img) =>
-   `<li class = "gallery-list"> <img src="${img.url}" alt="${img.alt}" width = "320"px/><.li>`);
-galleryList.getElementsByClassName.style.padding = "10px" ;
+   `<li class = "gallery-list"> <img src="${img.url}" alt="${img.alt}" width = "320"px></li>`);
+galleryList.style.displayFlex = "flex";
 galleryList.insertAdjacentHTML("beforeend", galleryItem.join(''));
+console.log(galleryList);
