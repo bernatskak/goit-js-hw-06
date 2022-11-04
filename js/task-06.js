@@ -1,5 +1,13 @@
-// // Напиши скрипт, який під час
-// втрати фокусу на інпуті(подія blur),
-// перевіряє його вміст щодо правильної кількості введених символів.
-// Яка кількість смиволів повинна бути в інпуті, зазначається в його атрибуті data-length.
-// Якщо введена правильна кількість символів, то border інпуту стає зеленим, якщо неправильна кількість - червоним.
+const refs = {
+  inputEl: document.querySelector("#validator-input"),
+};
+const symbols = Number(refs.inputEl.data - length);
+console.log(symbols);
+
+function onInputBlur(event) {
+  console.log(event.currentTarget.value.length);
+  event.currentTarget.value.length === symbols
+    ? refs.inputEl.classList.add("valid")
+    : refs.inputEl.classList.add("invalid");
+}
+refs.inputEl.addEventListener("blur", onInputBlur);
