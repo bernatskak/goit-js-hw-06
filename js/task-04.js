@@ -1,19 +1,28 @@
 const refs = {
-  value: document.querySelector(".value"),
-  increment: document.querySelector(".increment"),
-  decrement: document.querySelector(".decrement"),
-};
-let counterValue = 0;
-
-const decrementValue = () => {
-  counterValue -= 1;
-  refs.value.textContent = counterValue;
+  value: document.querySelector("#value"),
+  increment: document.querySelector('button[data-action="increment"]'),
+  decrement: document.querySelector('button[data-action="decrement"]'),
 };
 
-const incrementValue = () => {
-  counterValue += 1;
-  refs.value.textContent = counterValue;
+const counterValue = {
+  value: 0,
+  decrementValue() {
+    this.value -= 1;
+    return (refs.value.textContent = this.value);
+  },
+
+  incrementValue() {
+    this.value += 1;
+    return (refs.value.textContent = this.value);
+  },
 };
 
-refs.decrement.addEventListener("click", decrementValue());
-refs.increment.addEventListener("click", incrementValue());
+refs.increment.addEventListener(
+  "click",
+  counterValue.incrementValue.bind(counterValue)
+);
+
+refs.decrement.addEventListener(
+  "click",
+  counterValue.decrementValue.bind(counterValue)
+);
