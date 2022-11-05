@@ -7,7 +7,8 @@ const refs = {
   span: document.querySelector(".color"),
   button: document.querySelector(".change-color"),
 };
-const SetBg = (event) => {
+
+const setBg = (event) => {
   const randomColor = getRandomHexColor();
   refs.body.style.backgroundColor = randomColor;
   refs.span.innerHTML = randomColor;
