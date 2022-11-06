@@ -7,3 +7,4 @@ textInput.addEventListener("input", (event) => {
     output.textContent = "Anonymous";
   }
 });
+console.log(output.trim());
